@@ -33,8 +33,8 @@ echo "Creating lab template files..."
 
 # Create lab templates directory
 echo "Creating lab templates directory..."
-cd $HOME
-mkdir -p lab-templates
+cd /root
+mkdir lab-templates
 cd lab-templates
 
 # Pull necessary images
