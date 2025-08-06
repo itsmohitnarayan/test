@@ -45,36 +45,3 @@ done
 # Fix the labId format in template files
 sed -i 's/labId: {labId}/labId: "{labId}"/g' lab-pod-template.yaml lab-service-template.yaml lab-ingress-template.yaml lab-networkpolicy-template.yaml
 
-# Set LAB_ID variable
-LAB_ID=1
-
-# Apply all templates with LAB_ID substitution
-echo "Applying lab templates with LAB_ID=$LAB_ID..."
-sed "s/{labId}/$LAB_ID/g" lab-pod-template.yaml | kubectl apply -f -
-sed "s/{labId}/$LAB_ID/g" lab-service-template.yaml | kubectl apply -f -
-sed "s/{labId}/$LAB_ID/g" lab-ingress-template.yaml | kubectl apply -f -
-sed "s/{labId}/$LAB_ID/g" lab-networkpolicy-template.yaml | kubectl apply -f -
-
-# Watch pods for a limited time
-echo "Watching pods for 30 seconds..."
-timeout 30s kubectl get pods -w || true
-
-echo ""
-echo "Lab URLs:"
-echo "VSCode: http://vscode-$LAB_ID.mohit.fixcloud.shop/"
-echo "Terminal: http://terminal-$LAB_ID.mohit.fixcloud.shop/"
-
-echo ""
-echo "Checking cluster resources..."
-echo "kubectl describe node nodename"
-
-echo ""
-echo "Current resources:"
-kubectl get pods
-kubectl get svc
-kubectl get ingress
-kubectl get networkpolicy
-
-echo ""
-echo "To clean up, run:"
-echo "kubectl delete pod,svc,ingress,networkpolicy -l app=lab"
