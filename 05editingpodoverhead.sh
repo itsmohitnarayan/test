@@ -2,7 +2,7 @@
 set -e
 
 echo "Setting up Kata Runtime and Lab Environment..."
-
+cd /root
 # Navigate to kata-deploy runtimeclasses directory
 echo "Creating RuntimeClass..."
 cd kata-containers/tools/packaging/kata-deploy/runtimeclasses
@@ -32,7 +32,7 @@ kubectl get runtimeclass kata-fc -o yaml
 
 # Navigate to lab templates directory
 echo "Preparing lab templates..."
-cd "$HOME/lab-templates"
+cd "/root/lab-templates"
 
 # Check if template files exist
 for template in lab-pod-template.yaml lab-service-template.yaml lab-ingress-template.yaml lab-networkpolicy-template.yaml; do
