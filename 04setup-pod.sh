@@ -34,8 +34,8 @@ echo "Creating lab template files..."
 # Create lab templates directory
 echo "Creating lab templates directory..."
 cd /root
-mkdir lab-templates
-cd /lab-templates
+mkdir -p /root/lab-templates
+cd /root/lab-templates
 
 # Pull necessary images
 echo "Pulling necessary images for lab setup..."
