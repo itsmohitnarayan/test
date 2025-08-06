@@ -31,6 +31,10 @@ echo "Traefik configuration completed successfully!"
 echo "Setting up lab templates..."
 echo "Creating lab template files..."
 
+
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+kubectl get pods -n kube-system | grep metrics-server
+
 # Create lab templates directory
 echo "Creating lab templates directory..."
 cd /root
