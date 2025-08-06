@@ -66,7 +66,7 @@ echo "Terminal: http://terminal-$LAB_ID.mohit.fixcloud.shop/"
 
 echo ""
 echo "Checking cluster resources..."
-kubectl describe node mohit-benchmark
+echo "kubectl describe node nodename"
 
 echo ""
 echo "Current resources:"
