@@ -35,12 +35,12 @@ echo "Creating lab template files..."
 echo "Creating lab templates directory..."
 cd /root
 mkdir lab-templates
-cd lab-templates
+cd /lab-templates
 
 # Pull necessary images
 echo "Pulling necessary images for lab setup..."
 sudo ctr -a /run/k3s/containerd/containerd.sock -n k8s.io image pull docker.io/gitpod/openvscode-server:latest
-sudo ctr -a /run/k3s/containerd/containerd.sock -n k8s.io image pull tsl0922/ttyd:latest
+sudo ctr -a /run/k3s/containerd/containerd.sock -n k8s.io image pull docker.io/tsl0922/ttyd:latest
 
 # Create lab template files
 # 📄 1. lab-pod-template.yaml
